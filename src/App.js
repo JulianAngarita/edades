@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Fragment } from 'react';
+import { Route, Switch, HashRouter } from 'react-router-dom'
+import NuevaBusqueda from './vistas/nueva-busqueda';
+import ListaEdades from './vistas/lista-edades';
+
 
 function App() {
+  
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <HashRouter basename="/">
+        <Switch>
+          <Route exact path="/" component={NuevaBusqueda}/>
+          <Route exact path="/lista-edades/:url" component={ListaEdades}/>
+        </Switch>
+      </HashRouter>
+    </Fragment>
   );
 }
 
